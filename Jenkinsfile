@@ -34,7 +34,6 @@ pipeline {
                         sh 'npx vitest run --reporter=verbose'
                     }
                 }
-
                 stage('integration test') {
                     agent {
                         docker {
@@ -43,8 +42,6 @@ pipeline {
                         }
                     }
                     steps {
-                        sh 'npm ci'
-                        sh 'npm run build'
                         sh 'npx playwright test'
                     }
                 }
