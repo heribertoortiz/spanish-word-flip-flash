@@ -28,12 +28,12 @@ pipeline {
                         }
                     }
                     steps {
-                        sh 'npm ci'
-                        sh 'npm run build'
                         // Unit tests with Vitest
+                        sh 'npm ci'
                         sh 'npx vitest run --reporter=verbose'
                     }
                 }
+
             }
         }
 
@@ -44,8 +44,10 @@ pipeline {
                 }
             }
             steps {
+                // Mock deployment which does nothing
                 echo 'Mock deployment was successful!'
             }
         }
+        
     }
 }
