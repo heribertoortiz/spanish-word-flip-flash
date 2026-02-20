@@ -60,7 +60,6 @@ pipeline {
                 echo 'Mock deployment was successful!'
             }
         }
-
         stage('e2e') {
             agent {
                 docker {
