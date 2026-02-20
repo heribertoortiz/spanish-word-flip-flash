@@ -35,6 +35,18 @@ pipeline {
                     }
                 }
 
+                stage('integration test') {
+                    agent {
+                        docker {
+                            image 'mrc.microsoft.com/playwright:v1.54.2-jammy'
+                            reuseNode true
+                        }
+                    }
+                    steps {
+                        sh 'npx playwright test'
+                    }
+                }
+
             }
         }
 
